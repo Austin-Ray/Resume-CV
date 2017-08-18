@@ -62,6 +62,8 @@
 \RequirePackage{ifxetex}
 % Needed to use \if-\then-\else statement
 \RequirePackage{xifthen}
+% Needed for checking if no values
+\RequirePackage{xparse}
 % Needed to use a toolbox of programming tools
 \RequirePackage{etoolbox}
 % Needed to change line spacing in specific environment
@@ -616,7 +618,15 @@
 % Define a line of cv information(honor, award or something else)
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
 \newcommand*{\cvhonor}[4]{%
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+    \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+}
+
+\newenvironment{cvhonorsTwo} {
+}{%
+}
+
+\newcommand*{\cvhonorTwo}[2] {
+  \honorpositionstyle{#1}, \honortitlestyle{#2} \\
 }
 
 \newenvironment{cvskills}{%
@@ -633,7 +643,7 @@
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \entrytitlestyle{#1} \\ 
+    \entrytitlestyle{#1} \\
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#2}}
   \end{tabular*}%
 }

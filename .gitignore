@@ -225,3 +225,7 @@ TSWLatexianTemp*
 *-tags.tex
 
 # End of https://www.gitignore.io/api/latex
+#
+# XeLaTeX
+*.xdv
+*.swp
