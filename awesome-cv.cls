@@ -567,7 +567,6 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -592,14 +591,12 @@
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
     \setlength\leftskip{0.2cm}
-    \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
-      {\subentrydatestyle{#3}}{}
-    \ifthenelse{\equal{#1}{}}
-      {}
-      {\subentrypositionstyle{#1} & \subentrydatestyle{#3} \\}
-    \ifthenelse{\equal{#4}{}}
-      {}
-      {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
+    \subentrytitlestyle{#2} &
+    \IfNoValueTF{#1}
+      {\subentrydatestyle{#3}}
+      {\subentrypositionstyle{#1} \quad \subentrydatestyle{#3}} \\
+    \IfValueTF{#4}
+      {\multicolumn{2}{L{\textwidth}}{\hspace{2.5mm}\subdescriptionstyle{#4}}}{}
   \end{tabular*}
 }
 
@@ -661,6 +658,17 @@
   \vspace{-4.0mm}
 }
 
+\newenvironment{cvsubitems}{%
+  \vspace{-4.0mm}
+  \begin{justify}
+  \begin{itemize}[leftmargin=4.1ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{%
+  \end{itemize}
+  \end{justify}
+  \vspace{-4.0mm}
+}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of Cover Letter
