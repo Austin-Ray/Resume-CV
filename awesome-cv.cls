@@ -57,7 +57,7 @@
 % Needed to make header & footer effeciently
 \RequirePackage{fancyhdr}
 % Needed to manage colors
-\RequirePackage{xcolor}
+\RequirePackage[usenames,dvipsnames,rgb]{xcolor}
 % Needed to use \ifxetex-\else-\fi statement
 \RequirePackage{ifxetex}
 % Needed to use \if-\then-\else statement
