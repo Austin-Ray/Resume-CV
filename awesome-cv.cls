@@ -376,7 +376,7 @@
 \newcommand{\acvHeaderAfterQuoteSkip}{5mm}
 
 % Others
-\newcommand{\acvSectionTopSkip}{3mm}
+\newcommand{\acvSectionTopSkip}{-1mm}
 \newcommand{\acvSectionContentTopSkip}{2.5mm}
 
 
@@ -530,7 +530,7 @@
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{%
-%  \vspace{\acvSectionTopSkip}
+  \vspace{\acvSectionTopSkip}
   \sectionstyle{#1}
   \phantomsection
   \color{gray}\vhrulefill{0.9pt}
